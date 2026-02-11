@@ -1,0 +1,79 @@
+@import "tailwindcss";
+
+body{
+    background-color: black;
+}
+
+.gradient-border {
+  position: relative;
+  padding: 2px; 
+  border-radius: 9999px;
+  background: linear-gradient(
+    90deg,
+    #ff0080,
+    #7928ca,
+    #2afadf,
+    #ffee00df
+  );
+  background-size: 300% 300%;
+  animation: gradientMove 6s ease infinite;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.inner-box {
+  background: black;
+  border-radius: 9999px;
+  padding: 8px 24px;
+}
+
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-gradient {
+  animation: gradient 4s ease infinite;
+}
+
+.section-with-overlay::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.304);  
+  z-index: 1;
+}
+
+.section-with-overlay {
+  position: relative;
+}
+
+.section-with-overlay > * {
+  position: relative;
+  z-index: 2;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.float-animation {
+  animation: float 4s ease-in-out infinite;
+}
+
