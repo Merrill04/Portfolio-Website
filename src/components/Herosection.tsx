@@ -55,7 +55,7 @@ export default function Herosection() {
 
           <div className="mt-6 flex gap-4">
             <a
-              href="/Resume.pdf"
+              href="/MerrillDmonte-Fullstack.pdf"
               download
               className="px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-lg transition-all duration-300 shadow-lg"
             >
