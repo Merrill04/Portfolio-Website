@@ -40,6 +40,13 @@ const projects: Project[] = [
     techStack: ["Python", "FastAPI", "AI"],
     githubLink: "https://github.com/Merrill04/Immigration_Translation_Project",
   },
+  {
+    title: "Portfolio Website",
+    description:
+      "A modern and dynamic Portfolio website created using React and Tailwind.",
+    techStack: ["Typescript", "React", "Tailwind"],
+    githubLink: "https://github.com/Merrill04/Portfolio-Website",
+  },
 ];
 
 export default function ProjectsSection() {
