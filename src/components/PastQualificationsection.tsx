@@ -12,7 +12,7 @@ const qualifications: Qualification[] = [
   {
     title: "B.E. Computer Engineering",
     duration: "2022 – 2026",
-    grade: "CGPA: 7.97",
+    grade: "CGPA: 8.02",
     learnings: [
       "Data Structures & Algorithms",
       "Web Development",
