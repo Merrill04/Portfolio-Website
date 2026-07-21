@@ -63,7 +63,7 @@ export default function ConnectAndGrowSection() {
       name: "HackerRank",
       username: "merrilldmonte",
       icon: <Terminal className="w-6 h-6 text-emerald-400" />,
-      url: "https://www.hackerrank.com/profile/merrilldmonte",
+      url: "https://www.hackerrank.com/profile/Merrill04",
       badge: "Algorithms & Java",
     },
   ];
