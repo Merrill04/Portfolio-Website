@@ -20,6 +20,13 @@ const projects: Project[] = [
     githubLink: "https://github.com/Merrill04/E-Waste-Facility-Locator",
   },
   {
+    title: "URL Shortening Service",
+    description:
+      "A full-stack URL shortening service with built Node.js/Express REST API that supports creating, shortening, redirecting, caching, editing and analytics service.",
+    techStack: ["Node.js", "Express.js", "Redis", "PostgreSQL", "JWT"],
+    githubLink: "https://github.com/Merrill04/URL_Shortener",
+  },
+  {
     title: "Bank-Management-System",
     description:
       "All in one desktop application using Java and Swing for managing banking operations.",
