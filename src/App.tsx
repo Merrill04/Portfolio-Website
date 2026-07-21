@@ -1,48 +1,148 @@
-import { useRef } from "react";
-import Navbar from "./components/Navbar";
-import Herosection from "./components/Herosection";
-import AboutSection from "./components/Aboutsection";
-import ProjectsSection from "./components/ProjectsSection";
-import PastQualificationsection from "./components/PastQualificationsection";
-import CertificationAndAchievementsSection from "./components/CertificationAndAchievementsSection";
-import ConnectAndGrowSection from "./components/ConnectAndGrowSection";
+import { useRef, useState, useEffect } from 'react';
+import Navbar from './components/Navbar';
+import Herosection from './components/Herosection';
+import AboutSection from './components/Aboutsection';
+import ProjectsSection from './components/ProjectsSection';
+import CertificationSection from './components/CertificationAndAchievementsSection';
+import PastQualificationsection from './components/PastQualificationsection';
+import ConnectAndGrowSection from './components/ConnectAndGrowSection';
+import Footer from './components/Footer';
+import TerminalModal from './components/TerminalModal';
+import CommandPalette from './components/CommandPalette';
 
 function App() {
-    const aboutRef = useRef<HTMLDivElement>(null);
-    const projectsRef = useRef<HTMLDivElement>(null);
-    const certificationRef = useRef<HTMLDivElement>(null);
-    const qualificationRef = useRef<HTMLDivElement>(null);
+  const aboutRef = useRef<HTMLDivElement>(null);
+  const projectsRef = useRef<HTMLDivElement>(null);
+  const certificationRef = useRef<HTMLDivElement>(null);
+  const qualificationRef = useRef<HTMLDivElement>(null);
 
-    return (
-        <>
-            <Navbar
-                aboutRef={aboutRef}
-                projectsRef={projectsRef}
-                certificationRef={certificationRef}
-                qualificationRef={qualificationRef}
-            />
+  const [isTerminalOpen, setIsTerminalOpen] = useState(false);
+  const [isCommandPaletteOpen, setIsCommandPaletteOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('hero');
 
-            <Herosection />
+  // Active section scroll detection
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPos = window.scrollY + 200;
+      if (qualificationRef.current && scrollPos >= qualificationRef.current.offsetTop) {
+        setActiveSection('qualifications');
+      } else if (certificationRef.current && scrollPos >= certificationRef.current.offsetTop) {
+        setActiveSection('certifications');
+      } else if (projectsRef.current && scrollPos >= projectsRef.current.offsetTop) {
+        setActiveSection('projects');
+      } else if (aboutRef.current && scrollPos >= aboutRef.current.offsetTop) {
+        setActiveSection('about');
+      } else {
+        setActiveSection('hero');
+      }
+    };
 
-            <div ref={aboutRef}>
-                <AboutSection />
-            </div>
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
-            <div ref={projectsRef}>
-                <ProjectsSection />
-            </div>
+  // Hotkey Listeners (Ctrl+K and ~)
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+        e.preventDefault();
+        setIsCommandPaletteOpen((prev) => !prev);
+      } else if (e.key === '`' || e.key === '~') {
+        if (['INPUT', 'TEXTAREA'].includes((e.target as HTMLElement).tagName)) return;
+        e.preventDefault();
+        setIsTerminalOpen((prev) => !prev);
+      }
+    };
 
-            <div ref={certificationRef}>
-                <CertificationAndAchievementsSection />
-            </div>
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
 
-            <div ref={qualificationRef}>
-                <PastQualificationsection />
-            </div>
+  const scrollToSectionRef = (sectionId: string) => {
+    switch (sectionId) {
+      case 'about':
+      case 'skills':
+        aboutRef.current?.scrollIntoView({ behavior: 'smooth' });
+        break;
+      case 'projects':
+        projectsRef.current?.scrollIntoView({ behavior: 'smooth' });
+        break;
+      case 'certification':
+      case 'certifications':
+        certificationRef.current?.scrollIntoView({ behavior: 'smooth' });
+        break;
+      case 'qualification':
+      case 'qualifications':
+        qualificationRef.current?.scrollIntoView({ behavior: 'smooth' });
+        break;
+      default:
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
 
-            <ConnectAndGrowSection />
-        </>
-    );
+  return (
+    <div className="min-h-screen bg-[#05070c] text-white selection:bg-cyan-500 selection:text-black relative">
+      {/* Floating Glassmorphism Navbar */}
+      <Navbar
+        aboutRef={aboutRef}
+        projectsRef={projectsRef}
+        certificationRef={certificationRef}
+        qualificationRef={qualificationRef}
+        onOpenTerminal={() => setIsTerminalOpen(true)}
+        onOpenCommandPalette={() => setIsCommandPaletteOpen(true)}
+        activeSection={activeSection}
+      />
+
+      {/* Hero Section */}
+      <Herosection
+        onOpenTerminal={() => setIsTerminalOpen(true)}
+        onExploreProjects={() => projectsRef.current?.scrollIntoView({ behavior: 'smooth' })}
+      />
+
+      {/* About & Skills Section */}
+      <div ref={aboutRef}>
+        <AboutSection />
+      </div>
+
+      {/* Projects Section */}
+      <div ref={projectsRef}>
+        <ProjectsSection />
+      </div>
+
+      {/* Certifications Section */}
+      <div ref={certificationRef}>
+        <CertificationSection />
+      </div>
+
+      {/* Educational Qualifications Section */}
+      <div ref={qualificationRef}>
+        <PastQualificationsection />
+      </div>
+
+      {/* Connect & Grow & Contact */}
+      <ConnectAndGrowSection />
+
+      {/* Footer */}
+      <Footer
+        onOpenTerminal={() => setIsTerminalOpen(true)}
+      />
+
+      {/* Global Terminal Modal */}
+      <TerminalModal
+        isOpen={isTerminalOpen}
+        onClose={() => setIsTerminalOpen(false)}
+        onNavigateSection={scrollToSectionRef}
+      />
+
+      {/* Global Command Palette */}
+      <CommandPalette
+        isOpen={isCommandPaletteOpen}
+        onClose={() => setIsCommandPaletteOpen(false)}
+        onNavigateSection={scrollToSectionRef}
+        onOpenTerminal={() => setIsTerminalOpen(true)}
+      />
+    </div>
+  );
 }
 
 export default App;
