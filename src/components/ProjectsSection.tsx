@@ -28,9 +28,23 @@ const projectsData: Project[] = [
     techStack: ['Node.js', 'Express.js', 'Redis', 'PostgreSQL', 'JWT', 'REST API'],
     githubLink: 'https://github.com/Merrill04/URL_Shortener',
     architectureHighlights: [
-      'Redis cache layer achieving sub-10ms redirection response times',
+      'Redis cache layer for achieving faster response times',
       'PostgreSQL schema with optimized indexing for link click analytics',
-      'JWT payload verification and rate-limiting middleware',
+      'JWT payload verification',
+    ],
+  },
+  {
+    id: 'todo-list',
+    title: 'Todo-List App',
+    description: 'A full-stack Todo application built with a clean monorepo structure.',
+    longDescription: ' Todo List App with a Typescript + Express Backend and A React + Tailwind Frontend with Postgres SQL database Integration. Features JWT-based authentication, per-user todo management, and a modern dark UI.',
+    category: 'Full Stack',
+    techStack: ['Node.js', 'Express.js', 'React JS', 'PostgreSQL', 'JWT', 'REST API'],
+    githubLink: 'https://github.com/Merrill04/Todo_List',
+    architectureHighlights: [
+      'A full stack application which manages the users day to day task',
+      'PostgreSQL schema with two tables users and todos',
+      'JWT payload verification',
     ],
   },
   {
@@ -67,7 +81,7 @@ const projectsData: Project[] = [
     description: 'Interactive celestial events tracker for astronomy enthusiasts with Node.js database connectivity and PostgreSQL storage.',
     longDescription: 'Web portal keeping users informed on meteor showers, eclipses, and planetary alignments. Features event calendar tracking and community discussion posts stored in a PostgreSQL database.',
     category: 'Full Stack',
-    techStack: ['HTML5', 'CSS3', 'JavaScript', 'Node.js', 'PostgreSQL'],
+    techStack: ['HTML5', 'CSS3', 'Express', 'JavaScript', 'Node.js', 'PostgreSQL'],
     githubLink: 'https://github.com/Merrill04/Astronomical-Events-Website',
     architectureHighlights: [
       'Relational schema mapping upcoming celestial occurrences',
@@ -76,7 +90,7 @@ const projectsData: Project[] = [
     ],
   },
   {
-    id: 'portfolio-v2',
+    id: 'portfolio',
     title: 'Developer Portfolio Web App',
     description: 'Dynamic, modern software developer-centric portfolio featuring an interactive CLI terminal, command palette, and smooth UI animations.',
     longDescription: 'Custom built portfolio showcasing system engineering skills, interactive CLI mode, search command palette (Ctrl+K), and responsive glassmorphism aesthetic built with React 19, Vite, and Tailwind CSS.',

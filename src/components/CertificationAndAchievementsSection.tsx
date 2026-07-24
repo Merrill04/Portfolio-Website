@@ -1,4 +1,4 @@
-import { CheckCircle2, ShieldCheck } from 'lucide-react';
+import { ShieldCheck } from 'lucide-react';
 
 interface Certification {
   id: string;
@@ -11,38 +11,38 @@ interface Certification {
 const certifications: Certification[] = [
   {
     id: '1',
-    title: 'Career Essentials in Cybersecurity',
-    issuer: 'Microsoft & LinkedIn',
+    title: 'Cloud Architecting - Training Badge',
+    issuer: 'AWS Academy',
     badgeUrl: "https://images.credly.com/size/680x680/images/fcafd0c9-42da-4703-a191-0c397203dc1b/blob",
     link: "https://www.credly.com/badges/45c44869-cab8-4939-8b91-c09f757f9271/print",
   },
   {
     id: '2',
-    title: 'Python for IT & Software Development',
-    issuer: 'Credly / Cisco',
+    title: 'Microservices and CI/CD Pipeline Builder - Training Badge',
+    issuer: 'AWS Academy',
     badgeUrl: "https://images.credly.com/size/680x680/images/6ff76b93-852c-4f9e-a73a-fc10424a1007/blob",
     link: "https://www.credly.com/badges/fc175e0e-153b-406a-9a43-0c6eab65094a/print",
   },
   {
     id: '3',
-    title: 'Cloud & Infrastructure Essentials',
-    issuer: 'Credly Verified',
+    title: 'Cloud Web Application Builder - Training Badge',
+    issuer: 'AWS Academy',
     badgeUrl: "https://images.credly.com/size/680x680/images/7b3f119b-ada8-4ff6-817a-f2a8bbb7fe97/blob",
     link: "https://www.credly.com/badges/fe12770e-cdf8-4168-b747-1b6c2cf32f09/public_url",
   },
   {
     id: '4',
-    title: 'Full Stack Web Fundamentals',
-    issuer: 'Credly Verified',
+    title: 'Machine Learning for Natural Language Processing - Training Badge',
+    issuer: 'AWS Academy',
     badgeUrl: "https://images.credly.com/size/680x680/images/683b2e3c-0d28-42a2-ab84-7203a209f9d0/blob",
     link: "https://www.credly.com/badges/46bf9b49-2363-4d3a-bac1-6d214b74e0b6/public_url",
   },
   {
     id: '5',
-    title: 'Software Development & Systems',
-    issuer: 'Credly Verified',
-    badgeUrl: "https://images.credly.com/size/680x680/images/f53c1eb6-d93d-4b9e-ae34-922046f6b15c/image.png",
-    link: "https://www.credly.com/badges/9e5e46c9-c731-4d2a-95ca-3233fe09eb0f/public_url",
+    title: '50 - Days Of Leetcode',
+    issuer: 'Leetcode',
+    badgeUrl: "https://assets.leetcode.com/static_assets/others/50.gif",
+    link: "https://leetcode.com/medal/?showImg=0&id=10345906&isLevel=false",
   },
 ];
 
@@ -63,7 +63,7 @@ export default function CertificationSection() {
             Certifications & <span className="text-gradient">Badges</span>
           </h2>
           <p className="text-gray-400 max-w-2xl mx-auto text-base">
-            Verified technical badges demonstrating proficiency in cybersecurity, cloud infrastructure, Python, and full-stack software development.
+            Verified technical badges demonstrating proficiency in cloud infrastructure and problem solving.
           </p>
         </div>
 
@@ -91,12 +91,6 @@ export default function CertificationSection() {
                 {cert.title}
               </h3>
               <p className="text-[11px] font-mono text-gray-500 mt-1">{cert.issuer}</p>
-
-              {/* Verified Tag */}
-              <div className="mt-4 flex items-center gap-1 text-[10px] font-mono text-emerald-400 px-2 py-0.5 rounded-full bg-emerald-950/60 border border-emerald-500/30">
-                <CheckCircle2 className="w-3 h-3" />
-                <span>Credly Verified</span>
-              </div>
             </a>
           ))}
         </div>
