@@ -1,11 +1,7 @@
 import { useState, useEffect } from 'react';
-import { ArrowUp, Terminal } from 'lucide-react';
+import { ArrowUp } from 'lucide-react';
 
-interface FooterProps {
-  onOpenTerminal: () => void;
-}
-
-export default function Footer({ onOpenTerminal }: FooterProps) {
+export default function Footer() {
   const [uptimeSeconds, setUptimeSeconds] = useState(0);
 
   useEffect(() => {
@@ -38,15 +34,6 @@ export default function Footer({ onOpenTerminal }: FooterProps) {
 
         {/* Developer Action Buttons */}
         <div className="flex items-center gap-3">
-          <button
-            onClick={onOpenTerminal}
-            className="px-3 py-1.5 rounded-lg bg-white/5 hover:bg-cyan-950/60 border border-gray-800 hover:border-cyan-500/40 text-gray-300 hover:text-cyan-300 flex items-center gap-1.5 transition"
-            title="Launch Terminal"
-          >
-            <Terminal className="w-3.5 h-3.5 text-cyan-400" />
-            <span>CLI Terminal</span>
-          </button>
-
           <button
             onClick={scrollToTop}
             className="p-2 rounded-lg bg-blue-600/20 hover:bg-blue-600/40 border border-blue-500/40 text-blue-300 transition"

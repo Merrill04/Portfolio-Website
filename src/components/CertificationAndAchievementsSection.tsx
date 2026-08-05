@@ -44,6 +44,13 @@ const certifications: Certification[] = [
     badgeUrl: "https://assets.leetcode.com/static_assets/others/50.gif",
     link: "https://leetcode.com/medal/?showImg=0&id=10345906&isLevel=false",
   },
+  {
+    id: '6',
+    title: '100 - Days Of Leetcode',
+    issuer: 'Leetcode',
+    badgeUrl: "https://assets.leetcode.com/static_assets/others/100.gif",
+    link: "https://leetcode.com/medal/?showImg=0&id=10633155&isLevel=false",
+  },
 ];
 
 export default function CertificationSection() {

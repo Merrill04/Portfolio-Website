@@ -1,13 +1,12 @@
 import { useState, useEffect } from 'react';
-import { Download, ArrowRight, Terminal as TerminalIcon, Code2, Database, Cpu } from 'lucide-react';
+import { Download, ArrowRight, Code2, Database, Cpu } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 interface HerosectionProps {
-  onOpenTerminal?: () => void;
   onExploreProjects?: () => void;
 }
 
-export default function Herosection({ onOpenTerminal, onExploreProjects }: HerosectionProps) {
+export default function Herosection({ onExploreProjects }: HerosectionProps) {
   const images = [
     "/profile1.jpeg",
     "/profile2.jpeg",
@@ -127,17 +126,6 @@ export default function Herosection({ onOpenTerminal, onExploreProjects }: Heros
               <span>Explore Projects</span>
               <ArrowRight className="w-4 h-4 text-cyan-400" />
             </button>
-
-            {onOpenTerminal && (
-              <button
-                onClick={onOpenTerminal}
-                className="px-5 py-3.5 rounded-xl bg-cyan-950/40 hover:bg-cyan-900/60 border border-cyan-500/40 text-cyan-300 font-mono text-xs font-semibold flex items-center gap-2 transition"
-                title="Launch CLI Terminal"
-              >
-                <TerminalIcon className="w-4 h-4 text-cyan-400" />
-                <span>CLI Mode</span>
-              </button>
-            )}
           </div>
         </div>
 
